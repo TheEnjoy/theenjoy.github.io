@@ -21,7 +21,13 @@
     <app-navigation></app-navigation>
   <script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="main.js"></script></body>
   <script>
-    // SW Registration
+    // Check that service workers are registered
+    if ('serviceWorker' in navigator) {
+      // Use the window load event to keep the page load performant
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw-handmade.js');
+      });
+    }
   </script>
 
   <script>
